@@ -1,0 +1,33 @@
+main {
+  padding: 4em 15em;
+}
+
+.table-titles {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 20px;
+  padding: 1em 1em;
+}
+
+.one {
+  grid-column: 1 / 2;
+  font-style: bold;
+}
+.two {
+  grid-column: 2 / 7;
+}
+.three {
+  grid-column: 7 / 8;
+}
+.four {
+  grid-column: 8 / 9;
+}
+
+.five {
+  grid-column: 9/ 10;
+  margin: 25px auto;
+}
+
+.details-link {
+  color: #000;
+}
