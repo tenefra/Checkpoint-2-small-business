@@ -1,10 +1,9 @@
-import { connect, Connect } from "react-redux"
-import Details from "../components/details/Details"
+import { connect } from "react-redux"
+import Maps from "../components/map/Map"
 import { fetchMarker } from "../redux/actions"
 
 const mapStateToProps = state => {
   return {
-    listings: state.listings,
     maps: state.maps
   }
 }
@@ -15,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Details)
+export default connect(mapStateToProps, mapDispatchToProps)(Maps)

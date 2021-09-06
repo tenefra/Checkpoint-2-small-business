@@ -1,14 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { AppBar, Toolbar, Typography } from "@material-ui/core"
 import { Link } from "react-router-dom"
-import { green } from "@material-ui/core/colors"
+import { green, grey } from "@material-ui/core/colors"
+import cookie from "cookie"
 
 import "./navigationStyles.css"
+
+const checkAuth = () => {
+  const cookies = cookie.parse(document.cookie)
+  return cookies["loggedIn"] ? true : false
+}
 
 const Navigation = props => {
   return (
     <>
-      <AppBar className="AppBar" style={{ backgroundColor: green["A700"] }} position="relative">
+      <AppBar style={{ backgroundColor: green["A700"] }} position="relative">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: "1" }}>
             Chicago Small Business
@@ -17,12 +23,12 @@ const Navigation = props => {
             <li className="nav-list-item">
               <Link to="/">Listings</Link>
             </li>
-            {props.isLoggedIn ? (
+            {checkAuth() ? (
               <li className="nav-list-item">
                 <Link to="/addListing">Add</Link>
               </li>
             ) : null}
-            {props.isLoggedIn ? (
+            {checkAuth() ? (
               <li
                 onClick={() => {
                   document.cookie = "loggedIn="
@@ -40,6 +46,14 @@ const Navigation = props => {
           </ul>
         </Toolbar>
       </AppBar>
+
+      {checkAuth() ? (
+        <div className="UserBar" style={{ backgroundColor: grey[300] }} position="relative">
+          <Typography variant="p" style={{ flexGrow: "1", color: grey[500] }}>
+            {props.user}
+          </Typography>
+        </div>
+      ) : null}
     </>
   )
 }

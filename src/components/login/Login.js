@@ -16,6 +16,7 @@ class Login extends Component {
   }
 
   handleTextChange = e => {
+    console.log(this.props.user)
     const state = { ...this.state }
     state[e.target.name] = e.target.value
     this.setState(state)
@@ -24,8 +25,9 @@ class Login extends Component {
   login = e => {
     e.preventDefault()
 
+    this.props.addUser(this.state.username)
+
     document.cookie = "loggedIn=true;max-age=60*1000"
-    window.location.replace("/")
   }
 
   render() {

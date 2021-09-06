@@ -1,11 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useParams } from "react-router"
+import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps"
 
+import Map from "../map/Map"
 import "./detailsStyles.css"
 
 function Details(props) {
   const { id } = useParams()
   const listing = props.listings.find(l => l.id == id)
+  const { lat, lng } = props.maps[0]
+
+  useEffect(() => {
+    console.log(props.maps)
+    console.log(lat)
+    console.log(lng)
+    console.log(listing.address)
+    props.fetchMarker(listing.address)
+  }, [])
 
   return (
     <>
@@ -15,7 +26,7 @@ function Details(props) {
         <h4 className="details-item">{listing.hours}</h4>
         <p className="details-item">{listing.description}</p>
 
-        {/* map goes here */}
+        <Map id={id} />
       </container>
     </>
   )
