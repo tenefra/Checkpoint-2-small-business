@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import Maps from "../components/map/Map"
+import CustomMap from "../components/map/Map"
 import { fetchMarker } from "../redux/actions"
 
 const mapStateToProps = state => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Maps)
+export default connect(mapStateToProps, mapDispatchToProps)(CustomMap)

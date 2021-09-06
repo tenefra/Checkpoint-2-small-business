@@ -5,7 +5,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-map
 const WrappedMap = withScriptjs(withGoogleMap(MapComponent))
 const apiKey = "AIzaSyBEpQHHHkZyoFBQ78flP7iDmhdCEKAyOXc"
 
-function Maps(props) {
+function CustomMap(props) {
   console.log(props.maps)
   return (
     <div style={{ width: "100%", height: "400px" }}>
@@ -22,4 +22,4 @@ function MapComponent(props) {
   )
 }
 
-export default Maps
+export default CustomMap

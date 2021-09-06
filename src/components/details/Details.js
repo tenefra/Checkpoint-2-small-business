@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useParams } from "react-router"
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps"
 
-import Maps from "../map/Map"
+import CustomMap from "../map/Map"
 import "./detailsStyles.css"
 
 function Details(props) {
@@ -26,7 +26,7 @@ function Details(props) {
         <h4 className="details-item">{listing.hours}</h4>
         <p className="details-item">{listing.description}</p>
 
-        <Maps id={id} />
+        <CustomMap id={id} />
       </container>
     </>
   )
