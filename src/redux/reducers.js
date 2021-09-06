@@ -33,6 +33,10 @@ const maps = (state = {}, action) => {
     case "FETCH_MARKER":
       let mapState = [action.value]
       return mapState
+    case "CLEAR_MARKER":
+      let newState = [state]
+      newState.splice(action.value, 1)
+      return newState
     default:
       return state
   }

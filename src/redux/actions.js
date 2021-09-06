@@ -27,8 +27,9 @@ export const removeUser = user => {
 }
 
 export const fetchMarker = listing => {
+  const API_KEY = process.env.REACT_APP_BUSINESS_API_KEY
   return dispatch => {
-    fetch(`https://maps.google.com/maps/api/geocode/json?key=AIzaSyBEpQHHHkZyoFBQ78flP7iDmhdCEKAyOXc&address=${listing}`)
+    fetch(`https://maps.google.com/maps/api/geocode/json?key=${API_KEY}&address=${listing}`)
       .then(res => res.json())
       .then(response => {
         const action = {
@@ -37,5 +38,12 @@ export const fetchMarker = listing => {
         }
         dispatch(action)
       })
+  }
+}
+
+export const clearMarker = maps => {
+  return {
+    type: "CLEAR_MARKER",
+    value: maps
   }
 }

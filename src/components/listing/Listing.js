@@ -3,40 +3,74 @@ import { Link } from "react-router-dom"
 
 import Delete from "@material-ui/icons/Delete"
 import { red } from "@material-ui/core/colors"
+import Table from "@material-ui/core/Table"
+import TableBody from "@material-ui/core/TableBody"
+import TableCell from "@material-ui/core/TableCell"
+import TableContainer from "@material-ui/core/TableContainer"
+import TableHead from "@material-ui/core/TableHead"
+import TableRow from "@material-ui/core/TableRow"
+import Paper from "@material-ui/core/Paper"
 
 import "./listingStyles.css"
 
 function Listing(props) {
+  useEffect(() => {
+    props.clearMarker()
+  }, [])
+
   return (
     <>
       <main>
-        <container>
-          <div className="table-titles">
-            <div className="one">Name</div>
-            <div className="two">Description</div>
-            <div className="three">Hours</div>
-            <div className="four">Address</div>
-            {props.checkAuth() ? <p className="details-item">Delete</p> : null}
-          </div>
-        </container>
-        <hr />
-
-        {props.listings.map(({ name, id, description, hours, address }, idx) => {
-          return (
-            <container>
-              <div className="table-titles">
-                <Link to={`/details/${id}`} className="one details-link">
-                  <p>{name}</p>
-                </Link>
-                <p className="two">{description}</p>
-                <p className="three">{hours}</p>
-                <p className="four">{address}</p>
-                {props.checkAuth() ? <Delete className="five" onClick={e => props.removeListing(idx)} style={{ color: red[500] }}></Delete> : null}
-              </div>
-              <hr />
-            </container>
-          )
-        })}
+        <TableContainer>
+          <Table style={{ minWidth: "650" }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ fontSize: "16px" }}>Name</TableCell>
+                <TableCell style={{ fontSize: "16px" }} align="left">
+                  Description
+                </TableCell>
+                <TableCell style={{ fontSize: "16px" }} align="left">
+                  Hours
+                </TableCell>
+                <TableCell style={{ fontSize: "16px" }} align="left">
+                  Address
+                </TableCell>
+                {props.checkAuth() ? (
+                  <TableCell style={{ fontSize: "16px" }} align="left">
+                    Delete
+                  </TableCell>
+                ) : null}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.listings.map(({ name, id, description, hours, address }, idx) => {
+                return (
+                  <TableRow key={name}>
+                    <TableCell style={{ fontSize: "16px" }} component="th" scope="row">
+                      <Link to={`/details/${id}`} className="details-link">
+                        {name}
+                      </Link>
+                    </TableCell>
+                    <TableCell style={{ fontSize: "16px" }} align="left">
+                      {description}
+                    </TableCell>
+                    <TableCell style={{ fontSize: "16px" }} align="left">
+                      {hours}
+                    </TableCell>
+                    <TableCell style={{ fontSize: "16px" }} align="left">
+                      {address}
+                    </TableCell>
+                    {props.checkAuth() ? (
+                      <TableCell style={{ fontSize: "16px" }} align="left">
+                        <Delete className="five" onClick={e => props.removeListing(idx)} style={{ color: red[500] }}></Delete>
+                      </TableCell>
+                    ) : null}
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </main>
     </>
   )

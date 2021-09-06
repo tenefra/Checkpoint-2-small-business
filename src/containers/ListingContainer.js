@@ -1,6 +1,6 @@
 import { connect, Connect } from "react-redux"
 import Listing from "../components/listing/Listing"
-import { removeListing } from "../redux/actions"
+import { removeListing, clearMarker } from "../redux/actions"
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeListing: listing => dispatch(removeListing(listing))
+    removeListing: listing => dispatch(removeListing(listing)),
+    clearMarker: maps => dispatch(clearMarker(maps))
   }
 }
 

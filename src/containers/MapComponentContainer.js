@@ -6,4 +6,5 @@ const mapStateToProps = state => {
     maps: state.maps
   }
 }
+
 export default connect(mapStateToProps)(MapComponent)
