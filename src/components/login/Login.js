@@ -28,7 +28,7 @@ class Login extends Component {
 
     this.props.addUser(this.state.username)
 
-    document.cookie = "loggedIn=true;max-age=60*100"
+    document.cookie = "loggedIn=true;max-age=60*10000"
     this.props.history.push("/")
   }
 
