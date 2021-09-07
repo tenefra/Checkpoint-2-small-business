@@ -3,6 +3,8 @@ import { TextField, Button, Container } from "@material-ui/core"
 
 import "./addListingStyles.css"
 
+import AddListingMap from "./AddListingMap"
+
 class AddListing extends Component {
   constructor(props) {
     super(props)
@@ -14,8 +16,28 @@ class AddListing extends Component {
         description: "",
         hours: "",
         address: ""
+      },
+      coordinates: {
+        lat: 41.8757,
+        lng: -87.6243
       }
     }
+  }
+
+  componentDidUpdate = () => {
+    // const API_KEY = process.env.REACT_APP_BUSINESS_API_KEY
+    // fetch(`https://maps.google.com/maps/api/geocode/json?key=${API_KEY}&address=${this.state.newListing.address}`)
+    //   .then(res => res.json())
+    //   .then(response => {
+    //     if (response.results[0] == undefined) {
+    //       return
+    //     } else {
+    //       console.log(response.results[0].geometry.location)
+    //       this.setState({
+    //         coordinates: response.results[0].geometry.location
+    //       })
+    //     }
+    //   })
   }
 
   handleNameChange = e => {
@@ -64,6 +86,7 @@ class AddListing extends Component {
               </Button>
             </form>
           </Container>
+          <AddListingMap maps={this.state.coordinates} />
           {/* Google Map API map goes here */}
         </div>
       </>
