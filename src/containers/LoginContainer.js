@@ -1,4 +1,4 @@
-import { connect, Connect } from "react-redux"
+import { connect } from "react-redux"
 import Login from "../components/login/Login"
 import { addUser } from "../redux/actions"
 

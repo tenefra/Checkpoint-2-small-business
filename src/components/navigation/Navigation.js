@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { AppBar, Toolbar, Typography } from "@material-ui/core"
 import { Link } from "react-router-dom"
 import { green, grey } from "@material-ui/core/colors"
@@ -50,7 +50,7 @@ const Navigation = props => {
       {checkAuth() ? (
         <div className="UserBar" style={{ backgroundColor: grey[300] }} position="relative">
           <Typography variant="p" style={{ flexGrow: "1", color: grey[500] }}>
-            {props.user}
+            Logged in as: {props.user}
           </Typography>
         </div>
       ) : null}

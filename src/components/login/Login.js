@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router"
 import cookie from "cookie"
+import { History, withRouter } from "react-router-dom"
+
 import { TextField, Button, Container } from "@material-ui/core"
 
 import "./loginStyles.css"
@@ -28,6 +30,7 @@ class Login extends Component {
     this.props.addUser(this.state.username)
 
     document.cookie = "loggedIn=true;max-age=60*1000"
+    this.props.history.push("/")
   }
 
   render() {
@@ -36,7 +39,7 @@ class Login extends Component {
         <Container maxWidth="sm">
           <form className="login-form" onSubmit={this.login}>
             <TextField className="form-item" required onChange={this.handleTextChange} value={this.state.username} name="username" label="Username" type="text" />
-            <TextField className="form-item" required onChange={this.handleTextChange} value={this.state.password} name="password" label="Password" type="password" />
+            <TextField style={{ marginBottom: "20px" }} className="form-item" required onChange={this.handleTextChange} value={this.state.password} name="password" label="Password" type="password" />
             <Button className="form-item" type="submit" className="login-button" variant="contained" color="primary">
               Login
             </Button>
@@ -47,4 +50,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

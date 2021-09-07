@@ -1,4 +1,4 @@
-import { connect, Connect } from "react-redux"
+import { connect } from "react-redux"
 import AddListing from "../components/addListing/AddListing"
 import { addListing } from "../redux/actions"
 

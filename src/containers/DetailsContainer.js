@@ -1,6 +1,6 @@
-import { connect, Connect } from "react-redux"
+import { connect } from "react-redux"
 import Details from "../components/details/Details"
-import { fetchMarker } from "../redux/actions"
+import { fetchMarker, clearMarker } from "../redux/actions"
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchMarker: listing => dispatch(fetchMarker(listing))
+    fetchMarker: listing => dispatch(fetchMarker(listing)),
+    clearMarker: maps => dispatch(clearMarker(maps))
   }
 }
 

@@ -9,14 +9,13 @@ function Details(props) {
   const listing = props.listings.find(l => l.id == id)
 
   useEffect(() => {
-    console.log(props.maps)
-
+    props.clearMarker()
     props.fetchMarker(listing.address)
   }, [])
 
   return (
     <>
-      {props.maps[0] == undefined ? null : (
+      {props.maps[0] === undefined ? null : (
         <container className="details-container">
           <h2 className="details-item">{listing.name}</h2>
           <h4 className="details-item">{listing.address}</h4>

@@ -9,7 +9,6 @@ import TableCell from "@material-ui/core/TableCell"
 import TableContainer from "@material-ui/core/TableContainer"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
-import Paper from "@material-ui/core/Paper"
 
 import "./listingStyles.css"
 
@@ -48,7 +47,7 @@ function Listing(props) {
                   <TableRow key={name}>
                     <TableCell style={{ fontSize: "16px" }} component="th" scope="row">
                       <Link to={`/details/${id}`} className="details-link">
-                        {name}
+                        <strong>{name}</strong>
                       </Link>
                     </TableCell>
                     <TableCell style={{ fontSize: "16px" }} align="left">
