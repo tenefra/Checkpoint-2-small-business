@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core"
 import { Link } from "react-router-dom"
 import { green, grey } from "@material-ui/core/colors"
 import cookie from "cookie"
+import { History, withRouter } from "react-router-dom"
 
 import "./navigationStyles.css"
 
@@ -32,7 +33,7 @@ const Navigation = props => {
               <li
                 onClick={() => {
                   document.cookie = "loggedIn="
-                  window.location.replace("/login")
+                  props.history.push("/login")
                 }}
                 className="nav-list-item"
               >
@@ -58,4 +59,4 @@ const Navigation = props => {
   )
 }
 
-export default Navigation
+export default withRouter(Navigation)
