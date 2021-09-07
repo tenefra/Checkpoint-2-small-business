@@ -56,10 +56,10 @@ class AddListing extends Component {
           <Container maxWidth="sm">
             <form onSubmit={e => this.handleSubmit(e)} className="addlisting-form">
               <TextField required style={{ width: "100%" }} onChange={this.handleNameChange} value={this.state.newListing.name} name="name" label="Name" type="text" />
-              <TextField required onChange={this.handleAddressChange} value={this.state.newListing.address} name="address" label="Address" type="text" />
-              <TextField required onChange={this.handleHoursChange} value={this.state.newListing.hours} name="hours" label="Hours (ex. 8AM - 9PM)" type="text" />
-              <TextField required style={{ marginBottom: "20px" }} onChange={this.handleDescriptionChange} value={this.state.newListing.description} name="description" label="Description" type="text" />
-              <Button style={{ width: "100%" }} type="submit" className="addlisting-form" variant="contained" color="primary">
+              <TextField required style={{ width: "100%" }} onChange={this.handleAddressChange} value={this.state.newListing.address} name="address" label="Address" type="text" />
+              <TextField required style={{ width: "100%" }} onChange={this.handleHoursChange} value={this.state.newListing.hours} name="hours" label="Hours (ex. 8AM - 9PM)" type="text" />
+              <TextField required style={{ marginBottom: "20px", width: "100%" }} onChange={this.handleDescriptionChange} value={this.state.newListing.description} name="description" label="Description" type="text" />
+              <Button style={{ width: "50%" }} type="submit" className="addlisting-form" variant="contained" color="primary">
                 SAVE
               </Button>
             </form>

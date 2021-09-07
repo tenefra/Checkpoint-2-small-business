@@ -18,7 +18,6 @@ class Login extends Component {
   }
 
   handleTextChange = e => {
-    console.log(this.props.user)
     const state = { ...this.state }
     state[e.target.name] = e.target.value
     this.setState(state)
@@ -40,7 +39,7 @@ class Login extends Component {
           <form className="login-form" onSubmit={this.login}>
             <TextField className="form-item" required onChange={this.handleTextChange} value={this.state.username} name="username" label="Username" type="text" />
             <TextField style={{ marginBottom: "20px" }} className="form-item" required onChange={this.handleTextChange} value={this.state.password} name="password" label="Password" type="password" />
-            <Button className="form-item" type="submit" className="login-button" variant="contained" color="primary">
+            <Button className="form-item" type="submit" className="login-button" variant="contained" color="transparent">
               Login
             </Button>
           </form>
